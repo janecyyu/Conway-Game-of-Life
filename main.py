@@ -1,5 +1,6 @@
 import pygame
 import sys
+from game_window_class import *
 
 WIDTH, HEIGHT = 800, 800
 BACKGROUND = (255, 153, 153)
@@ -14,16 +15,18 @@ def get_events():
 
 
 def update():
-    pass
+    game_window.update()
 
 
 def draw():
     window.fill(BACKGROUND)
+    game_window.draw()
 
 
 pygame.init()
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
+game_window = Game_window(window, 100, 180)
 
 running = True
 while running:
