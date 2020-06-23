@@ -11,25 +11,38 @@
   width: 65%;
   height: 800px;
   border: 1px solid red;
+  display: flex;
+}
+
+.app .container .display .left {
+  width: 70%;
+}
+.app .container .display .right {
+  width: 30%;
+  margin-bottom: 11%;
+  margin-top: 6%;
 }
 
 .app .container .display .generation {
-  text-align: left;
-  margin-left: 30%;
+  text-align: center;
+  margin-right: 10%;
 }
-.app .container .display .grid {
-  width: 60%;
-  height: 70%;
+
+.app .container .display .left .grid {
+  width: 80%;
+  height: 600px;
   margin-left: 5%;
   margin-bottom: 2%;
   border: 1px solid black;
 }
+
 .app .container .display .btnAtBottom {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-right: 32%;
+  margin-right: 15%;
 }
+
 .btnAtBottom .play,
 .pause,
 .stop {
@@ -37,6 +50,19 @@
   padding: 10px;
   font-size: 1.5rem;
   border-radius: 10px;
+}
+
+.app .container .display .right .presetGrids {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.app .container .display .right .presetGrids .pre {
+  width: 130px;
+  height: 130px;
+  border: 1px solid orange;
 }
 
 .app .container .rules {

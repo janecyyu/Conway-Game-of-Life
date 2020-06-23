@@ -8,12 +8,22 @@ function App() {
       <h1 className="title">Conway's Game of Life</h1>
       <div className="container">
         <div className="display">
-          <h2 className="generation">Generation:</h2>
-          <div className="grid"></div>
-          <div className="btnAtBottom">
-            <button className="play">Play</button>
-            <button className="pause">Pause</button>
-            <button className="stop">Stop</button>
+          <div className="left">
+            <h2 className="generation">Generation:</h2>
+            <div className="grid"></div>
+            <div className="btnAtBottom">
+              <button className="play">Play</button>
+              <button className="pause">Pause</button>
+              <button className="stop">Stop</button>
+            </div>
+          </div>
+          <div className="right">
+            <div className="presetGrids">
+              <div className="pre preset1"></div>
+              <div className="pre preset2"></div>
+              <div className="pre preset3"></div>
+              <div className="pre preset4"></div>
+            </div>
           </div>
         </div>
         <div className="rules">
