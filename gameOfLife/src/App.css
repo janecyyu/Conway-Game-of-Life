@@ -10,7 +10,6 @@
 .app .container .display {
   width: 65%;
   height: 800px;
-  border: 1px solid red;
   display: flex;
 }
 
@@ -21,6 +20,7 @@
   width: 30%;
   margin-bottom: 11%;
   margin-top: 6%;
+  display: flex;
 }
 
 .app .container .display .generation {
@@ -65,14 +65,33 @@
   border: 1px solid orange;
 }
 
-.app .container .rules {
+.app .container .display .right .presetButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.app .container .display .right .presetButtons .preBtn {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin: 59px 20px;
+  padding: 5px;
+}
+
+.app .container .rulesAndAbout {
   width: 35%;
   height: 800px;
-  border: 1px solid red;
+  /* padding-right: 3%; */
 }
 
 .app .container .ruleTitle {
   text-align: center;
+}
+
+.app .container .rules .rulesContent {
+  font-size: 22px;
+  padding-right: 2%;
+  line-height: 30px;
 }
 
 .app .about {
