@@ -30,6 +30,27 @@ function App() {
           </ul>
         </div>
       </div>
+      <div>
+        <h2 className="about">About</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          pulvinar turpis sed ipsum porta eleifend. Phasellus ornare in metus et
+          convallis. Quisque eu laoreet urna, quis pellentesque ipsum.
+          Vestibulum rhoncus, sapien sit amet pellentesque finibus, orci quam
+          lobortis purus, quis commodo odio elit eu neque. Aenean finibus elit
+          ac molestie iaculis. Nullam ac sapien cursus, tempus augue at, iaculis
+          nulla. Etiam a nisi varius, placerat sapien sed, finibus libero.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+          pulvinar turpis sed ipsum porta eleifend. Phasellus ornare in metus et
+          convallis. Quisque eu laoreet urna, quis pellentesque ipsum.
+          Vestibulum rhoncus, sapien sit amet pellentesque finibus, orci quam
+          lobortis purus, quis commodo odio elit eu neque. Aenean finibus elit
+          ac molestie iaculis. Nullam ac sapien cursus, tempus augue at, iaculis
+          nulla. Etiam a nisi varius, placerat sapien sed, finibus libero.
+        </p>
+      </div>
     </div>
   );
 }

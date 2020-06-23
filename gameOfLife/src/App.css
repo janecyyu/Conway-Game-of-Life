@@ -8,13 +8,17 @@
 }
 
 .app .container .display {
-  width: 60%;
+  width: 65%;
   height: 800px;
   border: 1px solid red;
 }
 
 .app .container .rules {
-  width: 40%;
+  width: 35%;
   height: 800px;
   border: 1px solid red;
+}
+
+.app .about {
+  text-align: center;
 }
