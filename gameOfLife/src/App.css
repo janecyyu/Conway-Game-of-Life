@@ -28,13 +28,9 @@
   margin-right: 10%;
 }
 
-.app .container .display .left .grid {
-  width: 80%;
-  height: 600px;
-  margin-left: 5%;
-  margin-bottom: 2%;
+/* .app .container .display .left .grid {
   border: 1px solid black;
-}
+} */
 
 .app .container .display .btnAtBottom {
   display: flex;

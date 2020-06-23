@@ -1,16 +1,18 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
 import "./App.css";
+import Grid from "./lib/sketch";
 
 function App() {
+  const [generation, setGeneration] = useState(0);
+
   return (
     <div className="app">
       <h1 className="title">Conway's Game of Life</h1>
       <div className="container">
         <div className="display">
           <div className="left">
-            <h2 className="generation">Generation:</h2>
-            <div className="grid"></div>
+            <h2 className="generation">Generation:{generation}</h2>
+            <Grid className="grid"></Grid>
             <div className="btnAtBottom">
               <button className="play">Play</button>
               <button className="pause">Pause</button>
