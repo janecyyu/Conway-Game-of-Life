@@ -7,9 +7,17 @@ function App() {
     <div className="app">
       <h1 className="title">Conway's Game of Life</h1>
       <div className="container">
-        <div className="display"></div>
+        <div className="display">
+          <h2 className="generation">Generation:</h2>
+          <div className="grid"></div>
+          <div className="btnAtBottom">
+            <button className="play">Play</button>
+            <button className="pause">Pause</button>
+            <button className="stop">Stop</button>
+          </div>
+        </div>
         <div className="rules">
-          Rules:
+          <h2 className="ruleTitle">Rules:</h2>
           <ul>
             <li>
               Any live cell with fewer than two live neighbours dies, as if by

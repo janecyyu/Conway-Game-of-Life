@@ -13,10 +13,40 @@
   border: 1px solid red;
 }
 
+.app .container .display .generation {
+  text-align: left;
+  margin-left: 30%;
+}
+.app .container .display .grid {
+  width: 60%;
+  height: 70%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  border: 1px solid black;
+}
+.app .container .display .btnAtBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-right: 32%;
+}
+.btnAtBottom .play,
+.pause,
+.stop {
+  margin: 2%;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
 .app .container .rules {
   width: 35%;
   height: 800px;
   border: 1px solid red;
+}
+
+.app .container .ruleTitle {
+  text-align: center;
 }
 
 .app .about {
