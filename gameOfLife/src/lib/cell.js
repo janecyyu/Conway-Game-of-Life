@@ -23,9 +23,9 @@ function Cell(props) {
   };
 
   function life() {
-    var neighbors = 0;
     var target;
     select.map((item) => {
+      var neighbors = 0;
       target = item;
       if (select.includes(target + 1)) {
         neighbors++;
@@ -51,6 +51,13 @@ function Cell(props) {
       if (select.includes(target + 6)) {
         neighbors++;
       }
+      console.log("l", neighbors);
+      if (neighbors == 1) {
+        console.log("one");
+      }
+      if (neighbors == 2) {
+        console.log("two");
+      }
       // if (neighbors > 3) {
       //   return setDying(true);
       // }
@@ -64,8 +71,6 @@ function Cell(props) {
     // if (neighbors < 2) {
     //   return setDying(true);
     // }
-
-    console.log("l", neighbors);
   }
   life();
 
