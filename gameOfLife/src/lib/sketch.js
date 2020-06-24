@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Cell from "./cell";
 
-function Grid() {
+function Grid(props) {
+  const [array, setArray] = useState([]);
   var rows = [];
-  for (var y = 1; y <= 25; y++) {
+  let id = 0;
+  let key = 0;
+  for (var y = 0; y < 5; y++) {
     var cells = [];
-    for (var x = 1; x <= 25; x++) {
-      cells.push(<Cell />);
+    for (var x = 0; x < 5; x++) {
+      cells.push(
+        <Cell start={props.start} array={array} key={key++} id={id++} />
+      );
     }
     rows.push(<tr key={y}>{cells}</tr>);
   }

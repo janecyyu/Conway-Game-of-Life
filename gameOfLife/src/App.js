@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
 import Grid from "./lib/sketch";
+import Cell from "./lib/cell";
 
 function App() {
   const [generation, setGeneration] = useState(0);
+  const [start, setStart] = useState(false);
+
+  const handleClear = (e) => {
+    e.preventDefault();
+    setGeneration(0);
+  };
 
   return (
     <div className="app">
@@ -12,11 +19,14 @@ function App() {
         <div className="display">
           <div className="left">
             <h2 className="generation">Generation:{generation}</h2>
-            <Grid className="grid"></Grid>
+            <Grid className="grid" start={start}></Grid>
             <div className="btnAtBottom">
               <button className="play">Play</button>
               <button className="pause">Pause</button>
               <button className="stop">Stop</button>
+              <button className="stop" onClick={handleClear}>
+                Clear
+              </button>
             </div>
           </div>
           <div className="right">
