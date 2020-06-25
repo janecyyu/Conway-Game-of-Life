@@ -27,6 +27,7 @@ function App() {
   const [once, setOnce] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
+  const [slow, setSlow] = useState(1000);
   const runningRef = useRef(running);
 
   const runSimulation = useCallback(() => {
@@ -64,7 +65,7 @@ function App() {
       // set a clock
       const id = window.setInterval(() => {
         setCount((count) => count + 1);
-      }, document.getElementById("speed").value * 100);
+      }, slow);
 
       return () => window.clearInterval(id);
     }
@@ -150,15 +151,8 @@ function App() {
               >
                 Clear
               </button>
-              <input
-                type="number"
-                // value={speed}
-                // type=""
-                id="speed"
-                className="controller"
-                // onChage={onInputSpeed}
-                placeholder="tenth of second"
-              />
+              <button onClick={() => setSlow(100)}>fast</button>
+              <button onClick={() => setSlow(2000)}>slow</button>
             </div>
           </div>
           <div className="right">
