@@ -32,8 +32,6 @@ function App() {
 
   // use useCallback instead of useEffect, because we have to get new data for setGrid()
   const runSimulation = useCallback(() => {
-    console.log("simu", running);
-    console.log("simu-cur", runningRef.current);
     if (!runningRef.current) {
       return;
     }
@@ -53,20 +51,37 @@ function App() {
                 neighbors += g[newI][newJ];
               }
             });
+            // don't count self
 
             // will die if neighbors less than 2 or more than three
-            if (neighbors < 2 || neighbors > 3) {
+            if (neighbors > 4) {
+              console.log(g[i][j]);
+              console.log(">3", neighbors);
               gridCopy[i][j] = 0;
               // will get life if you have three neighbors but you don't have life yet
-            } else if (g[i][j] === 0 && neighbors === 3) {
+            }
+            if (neighbors < 3) {
+              console.log(g[i][j]);
+              console.log("<2", neighbors);
+              gridCopy[i][j] = 0;
+            }
+            // will get life if you have three neighbors but you don't have life yet
+            if (g[i][j] === 0 && neighbors === 3) {
+              console.log(g[i][j]);
+              console.log("add", neighbors);
               gridCopy[i][j] = 1;
             }
+            // } else if (g[i][j] === 1 && neighbors == 2) {
+            //   gridCopy[i][j] = 1;
+            // } else if (g[i][j] === 1 && neighbors == 3) {
+            //   gridCopy[i][j] = 1;
+            // }
           }
         }
       });
     });
     setTimeout(runSimulation, slow);
-  }, [running]);
+  }, []);
 
   // run if the state of stopping is false
   useEffect(() => {
