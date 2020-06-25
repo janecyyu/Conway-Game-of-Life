@@ -68,6 +68,7 @@ function App() {
       return () => window.clearInterval(id);
     }
   }, [stopping]);
+
   return (
     <div className="app">
       <h1 className="title">Conway's Game of Life</h1>
@@ -96,16 +97,58 @@ function App() {
                       width: 20,
                       height: 20,
                       backgroundColor: grid[i][k] ? "skyblue" : undefined,
-                      border: "solid 1px black",
+                      border: "1px solid black",
                     }}
                   />
                 ))
               )}
             </div>
             <div className="btnAtBottom">
-              <button className="play">Play</button>
+              {!running && (
+                <button
+                  className="play"
+                  onClick={() => {
+                    setRunning(!running);
+                    if (!running) {
+                      runningRef.current = true;
+                      runSimulation();
+                    }
+                    setOnce(false);
+                    setStopping(false);
+                  }}
+                >
+                  start
+                </button>
+              )}
               <button className="pause">Pause</button>
-              <button className="stop">Stop</button>
+              {running && (
+                <button
+                  className="stop"
+                  onClick={() => {
+                    setRunning(!running);
+                    if (!running) {
+                      runningRef.current = true;
+                      runSimulation();
+                    }
+                    setOnce(true);
+                    setStopping(true);
+                  }}
+                >
+                  stop
+                </button>
+              )}
+              <button
+                className="stop"
+                onClick={() => {
+                  setGrid(createEmptyGrid());
+                  setOnce(true);
+                  setRunning(false);
+                  setCount(0);
+                  setStopping(true);
+                }}
+              >
+                Clear
+              </button>
             </div>
           </div>
           <div className="right">
