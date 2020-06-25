@@ -17,14 +17,12 @@ const createEmptyGrid = () => {
 const operation = Array(9)
   .fill(1)
   .map((i, k) => [Math.floor(k / 3) - 1, (k % 3) - 1]);
-console.log(operation);
-console.log(operation[0]);
 
 function App() {
-  const [generation, setGeneration] = useState(0);
   const [grid, setGrid] = useState(() => {
     return createEmptyGrid();
   });
+
   const [running, setRunning] = useState();
   const [once, setOnce] = useState(true);
   const [stopping, setStopping] = useState(true);
@@ -35,27 +33,30 @@ function App() {
     if (!runningRef.current) {
       return;
     }
-    setGrid((g, gCopy) => {
-      for (let i = 0; i < numRows; i++) {
-        for (let j = 0; j < numCols; j++) {
-          let neighbors = 0;
-          // find each cell's neighbors
-          operation.forEach(([x, y]) => {
-            const newI = i + x;
-            const newJ = j + y;
-            if (newI >= 0 && newI < numRows && newJ >= 0 && newJ < numCols) {
-              neighbors += g[newI][newJ];
+    setGrid((g) => {
+      return produce(g, (gridCopy) => {
+        for (let i = 0; i < numRows; i++) {
+          for (let j = 0; j < numCols; j++) {
+            let neighbors = 0;
+
+            operation.forEach(([x, y]) => {
+              const newI = i + x;
+              const newJ = j + y;
+
+              if (newI >= 0 && newI < numRows && newJ >= 0 && newJ < numCols) {
+                neighbors += g[newI][newJ];
+              }
+            });
+
+            if (neighbors < 2 || neighbors > 3) {
+              gridCopy[i][j] = 0;
+            } else if (g[i][j] === 0 && neighbors === 3) {
+              gridCopy[i][j] = 1;
             }
-          });
-          if (neighbors > 3 || neighbors < 2) {
-            gCopy[i][j] = 0;
-          } else if (g[i][j] === 0 && neighbors === 3) {
-            gCopy[i][j] = 1;
           }
         }
-      }
+      });
     });
-    setTimeout(runSimulation, document.getElementById("speed").value * 100);
   }, []);
 
   useEffect(() => {
@@ -117,10 +118,10 @@ function App() {
                     setStopping(false);
                   }}
                 >
-                  start
+                  Play
                 </button>
               )}
-              <button className="pause">Pause</button>
+              {/* <button className="pause">Pause</button> */}
               {running && (
                 <button
                   className="stop"
@@ -149,6 +150,15 @@ function App() {
               >
                 Clear
               </button>
+              <input
+                type="number"
+                // value={speed}
+                // type=""
+                id="speed"
+                className="controller"
+                // onChage={onInputSpeed}
+                placeholder="tenth of second"
+              />
             </div>
           </div>
           <div className="right">
