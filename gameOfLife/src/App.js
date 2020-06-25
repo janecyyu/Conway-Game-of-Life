@@ -24,7 +24,7 @@ function App() {
     return createEmptyGrid();
   });
 
-  const [running, setRunning] = useState(); //undefined
+  const [running, setRunning] = useState(false);
   const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
@@ -118,11 +118,11 @@ function App() {
                 <button
                   className="play"
                   onClick={() => {
-                    setRunning(!running);
                     if (!running) {
                       runningRef.current = true;
                       runSimulation();
                     }
+                    setRunning(!running);
                     setOn(false);
                     setStopping(false);
                   }}
@@ -130,16 +130,15 @@ function App() {
                   Play
                 </button>
               )}
-              {/* <button className="pause">Pause</button> */}
               {running && (
                 <button
                   className="stop"
                   onClick={() => {
-                    setRunning(!running);
                     if (!running) {
                       runningRef.current = true;
                       runSimulation();
                     }
+                    setRunning(!running);
                     setOn(true);
                     setStopping(true);
                   }}
@@ -148,7 +147,7 @@ function App() {
                 </button>
               )}
               <button
-                className="stop"
+                className="clear"
                 onClick={() => {
                   setGrid(createEmptyGrid());
                   setOn(true);

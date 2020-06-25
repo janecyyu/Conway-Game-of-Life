@@ -41,7 +41,8 @@
 
 .btnAtBottom .play,
 .pause,
-.stop {
+.stop,
+.clear {
   margin: 2%;
   padding: 10px;
   font-size: 1.5rem;
