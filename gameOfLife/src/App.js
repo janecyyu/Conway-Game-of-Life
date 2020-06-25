@@ -3,8 +3,8 @@ import "./App.css";
 import produce from "immer";
 import Grid from "./lib/sketch";
 
-const numRows = 5;
-const numCols = 5;
+const numRows = 25;
+const numCols = 25;
 
 const createEmptyGrid = () => {
   const rows = [];
@@ -26,6 +26,7 @@ function App() {
     return createEmptyGrid();
   });
   const [running, setRunning] = useState();
+  const [once, setOnce] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
   const runningRef = useRef(running);
@@ -74,7 +75,33 @@ function App() {
         <div className="display">
           <div className="left">
             <h2 className="generation">Generation:{count}</h2>
-            <Grid className="grid"></Grid>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: `repeat(${numCols}, 20px)`,
+              }}
+            >
+              {grid.map((rows, i) =>
+                rows.map((col, k) => (
+                  <button
+                    key={`${i}-${k}`}
+                    disabled={!once}
+                    onClick={() => {
+                      const newGrid = produce(grid, (gridCopy) => {
+                        gridCopy[i][k] = grid[i][k] ? 0 : 1;
+                      });
+                      setGrid(newGrid);
+                    }}
+                    style={{
+                      width: 20,
+                      height: 20,
+                      backgroundColor: grid[i][k] ? "skyblue" : undefined,
+                      border: "solid 1px black",
+                    }}
+                  />
+                ))
+              )}
+            </div>
             <div className="btnAtBottom">
               <button className="play">Play</button>
               <button className="pause">Pause</button>
