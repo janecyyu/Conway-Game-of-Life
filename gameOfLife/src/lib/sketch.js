@@ -3,9 +3,9 @@ import Cell from "./cell";
 
 function Grid() {
   var rows = [];
-  for (var y = 1; y <= 25; y++) {
+  for (var y = 1; y <= 5; y++) {
     var cells = [];
-    for (var x = 1; x <= 25; x++) {
+    for (var x = 1; x <= 5; x++) {
       cells.push(<Cell />);
     }
     rows.push(<tr key={y}>{cells}</tr>);
