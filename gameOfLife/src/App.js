@@ -23,7 +23,7 @@ function App() {
     return createEmptyGrid();
   });
 
-  const [running, setRunning] = useState();
+  const [running, setRunning] = useState(false);
   const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
@@ -32,6 +32,8 @@ function App() {
 
   // use useCallback instead of useEffect, because we have to get new data for setGrid()
   const runSimulation = useCallback(() => {
+    console.log("simu", running);
+    console.log("simu-cur", runningRef.current);
     if (!runningRef.current) {
       return;
     }
@@ -63,8 +65,8 @@ function App() {
         }
       });
     });
-    setTimeout(runSimulation, 1000);
-  }, []);
+    setTimeout(runSimulation, slow);
+  }, [running]);
 
   // run if the state of stopping is false
   useEffect(() => {
@@ -118,11 +120,11 @@ function App() {
                 <button
                   className="play"
                   onClick={() => {
-                    if (!running) {
-                      runningRef.current = true;
-                      runSimulation();
-                    }
-                    setRunning(!running);
+                    setRunning(true);
+                    console.log("play-run", running);
+                    console.log("play-runRef", runningRef.current);
+                    runningRef.current = true;
+                    runSimulation();
                     setOn(false);
                     setStopping(false);
                   }}
@@ -134,11 +136,10 @@ function App() {
                 <button
                   className="stop"
                   onClick={() => {
-                    if (!running) {
-                      runningRef.current = true;
-                      runSimulation();
-                    }
-                    setRunning(!running);
+                    setRunning(false);
+                    console.log("stop-run", running);
+                    console.log("stop-runRef", runningRef.current);
+                    runningRef.current = false;
                     setOn(true);
                     setStopping(true);
                   }}
@@ -163,12 +164,12 @@ function App() {
             </div>
           </div>
           <div className="right">
-            <div className="presetGrids">
+            {/* <div className="presetGrids">
               <div className="pre preset1"></div>
               <div className="pre preset2"></div>
               <div className="pre preset3"></div>
               <div className="pre preset4"></div>
-            </div>
+            </div> */}
             <div className="presetButtons">
               <button
                 className="preBtn"
