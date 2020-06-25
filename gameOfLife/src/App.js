@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./App.css";
 import produce from "immer";
-import Grid from "./lib/sketch";
 
 const numRows = 25;
 const numCols = 25;
