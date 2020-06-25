@@ -8,6 +8,7 @@ const numCols = 25;
 const createEmptyGrid = () => {
   const rows = [];
   for (let i = 0; i < numRows; i++) {
+    // push a new, shallow-copied array, filled with 0
     rows.push(Array.from(Array(numCols), () => 0));
   }
   return rows;
@@ -15,20 +16,22 @@ const createEmptyGrid = () => {
 
 const operation = Array(9)
   .fill(1)
-  .map((i, k) => [Math.floor(k / 3) - 1, (k % 3) - 1]);
+  .map((k, idx) => [Math.floor(idx / 3) - 1, (idx % 3) - 1]);
+console.log(operation);
 
 function App() {
   const [grid, setGrid] = useState(() => {
     return createEmptyGrid();
   });
 
-  const [running, setRunning] = useState();
-  const [once, setOnce] = useState(true);
+  const [running, setRunning] = useState(); //undefined
+  const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
   const [slow, setSlow] = useState(1000);
   const runningRef = useRef(running);
 
+  // use useCallback instead of useEffect, because we have to get new data for setGrid()
   const runSimulation = useCallback(() => {
     if (!runningRef.current) {
       return;
@@ -39,17 +42,21 @@ function App() {
           for (let j = 0; j < numCols; j++) {
             let neighbors = 0;
 
+            // loop every neighbor
             operation.forEach(([x, y]) => {
               const newI = i + x;
               const newJ = j + y;
 
+              // will plus one if get a neighbor
               if (newI >= 0 && newI < numRows && newJ >= 0 && newJ < numCols) {
                 neighbors += g[newI][newJ];
               }
             });
 
+            // will die if neighbors less than 2 or more than three
             if (neighbors < 2 || neighbors > 3) {
               gridCopy[i][j] = 0;
+              // will get life if you have three neighbors but you don't have life yet
             } else if (g[i][j] === 0 && neighbors === 3) {
               gridCopy[i][j] = 1;
             }
@@ -59,13 +66,14 @@ function App() {
     });
   }, []);
 
+  // run if the state of stopping is false
   useEffect(() => {
     if (!stopping) {
-      // set a clock
+      // set a clock to increasing counting, running time depends on the state of slow
       const id = window.setInterval(() => {
         setCount((count) => count + 1);
       }, slow);
-
+      // set counter to zero
       return () => window.clearInterval(id);
     }
   }, [stopping]);
@@ -87,9 +95,10 @@ function App() {
                 rows.map((col, k) => (
                   <button
                     key={`${i}-${k}`}
-                    disabled={!once}
+                    disabled={!on}
                     onClick={() => {
                       const newGrid = produce(grid, (gridCopy) => {
+                        // if cells alive, gridCopy get 1
                         gridCopy[i][k] = grid[i][k] ? 0 : 1;
                       });
                       setGrid(newGrid);
@@ -114,7 +123,7 @@ function App() {
                       runningRef.current = true;
                       runSimulation();
                     }
-                    setOnce(false);
+                    setOn(false);
                     setStopping(false);
                   }}
                 >
@@ -131,7 +140,7 @@ function App() {
                       runningRef.current = true;
                       runSimulation();
                     }
-                    setOnce(true);
+                    setOn(true);
                     setStopping(true);
                   }}
                 >
@@ -142,7 +151,7 @@ function App() {
                 className="stop"
                 onClick={() => {
                   setGrid(createEmptyGrid());
-                  setOnce(true);
+                  setOn(true);
                   setRunning(false);
                   setCount(0);
                   setStopping(true);
