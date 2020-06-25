@@ -17,14 +17,13 @@ const createEmptyGrid = () => {
 const operation = Array(9)
   .fill(1)
   .map((k, idx) => [Math.floor(idx / 3) - 1, (idx % 3) - 1]);
-console.log(operation);
 
 function App() {
   const [grid, setGrid] = useState(() => {
     return createEmptyGrid();
   });
 
-  const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState();
   const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
@@ -64,6 +63,7 @@ function App() {
         }
       });
     });
+    setTimeout(runSimulation, 1000);
   }, []);
 
   // run if the state of stopping is false
@@ -170,7 +170,20 @@ function App() {
               <div className="pre preset4"></div>
             </div>
             <div className="presetButtons">
-              <button className="preBtn">Preset 1</button>
+              <button
+                className="preBtn"
+                onClick={() => {
+                  const newGrid = produce(grid, (gridCopy) => {
+                    // if cells alive, gridCopy get 1
+                    for (let i = 10; i < 21; i++) {
+                      gridCopy[10][i] = 1;
+                    }
+                  });
+                  setGrid(newGrid);
+                }}
+              >
+                Preset 1
+              </button>
               <button className="preBtn">Preset 2</button>
               <button className="preBtn">Preset 3</button>
               <button className="preBtn">Preset 4</button>
