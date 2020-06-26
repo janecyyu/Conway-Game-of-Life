@@ -112,7 +112,7 @@ function App() {
                       setGrid(newGrid);
                     }}
                     style={{
-                      backgroundColor: grid[i][k] ? "CadetBlue" : undefined,
+                      backgroundColor: grid[i][k] ? "#ff6699" : "#b3b3b3",
                     }}
                   />
                 ))
@@ -167,8 +167,8 @@ function App() {
                 onClick={() => {
                   const newGrid = produce(grid, (gridCopy) => {
                     // if cells alive, gridCopy get 1
-                    for (let i = 10; i < 21; i++) {
-                      gridCopy[10][i] = 1;
+                    for (let i = 8; i < 18; i++) {
+                      gridCopy[11][i] = 1;
                     }
                   });
                   setGrid(newGrid);

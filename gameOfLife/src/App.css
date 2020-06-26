@@ -29,10 +29,6 @@
   border: 1px solid black;
 }
 
-.cells:hover {
-  background-color: white;
-}
-
 .app .container .display .right {
   width: 30%;
   margin-bottom: 11%;
