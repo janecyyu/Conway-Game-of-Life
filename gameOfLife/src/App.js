@@ -27,11 +27,12 @@ function App() {
   const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
-  const [slow, setSlow] = useState(1000);
+  const [slow, setSlow] = useState(100);
   const runningRef = useRef(running);
 
   // use useCallback instead of useEffect, because we have to get new data for setGrid()
   const runSimulation = useCallback(() => {
+    console.log("sim", slow);
     if (!runningRef.current) {
       return;
     }
@@ -124,8 +125,6 @@ function App() {
                   className="play"
                   onClick={() => {
                     setRunning(true);
-                    console.log("play-run", running);
-                    console.log("play-runRef", runningRef.current);
                     runningRef.current = true;
                     runSimulation();
                     setOn(false);
@@ -140,8 +139,7 @@ function App() {
                   className="stop"
                   onClick={() => {
                     setRunning(false);
-                    console.log("stop-run", running);
-                    console.log("stop-runRef", runningRef.current);
+                    console.log("speed", slow);
                     runningRef.current = false;
                     setOn(true);
                     setStopping(true);
@@ -162,17 +160,11 @@ function App() {
               >
                 Clear
               </button>
-              <button onClick={() => setSlow(100)}>fast</button>
+              <button onClick={() => setSlow(50)}>fast</button>
               <button onClick={() => setSlow(2000)}>slow</button>
             </div>
           </div>
           <div className="right">
-            {/* <div className="presetGrids">
-              <div className="pre preset1"></div>
-              <div className="pre preset2"></div>
-              <div className="pre preset3"></div>
-              <div className="pre preset4"></div>
-            </div> */}
             <div className="presetButtons">
               <button
                 className="preBtn"
@@ -186,7 +178,7 @@ function App() {
                   setGrid(newGrid);
                 }}
               >
-                Preset 1
+                10 Cell Row
               </button>
               <button className="preBtn">Preset 2</button>
               <button className="preBtn">Preset 3</button>
@@ -221,24 +213,10 @@ function App() {
           <div>
             <h2 className="about">About</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              pulvinar turpis sed ipsum porta eleifend. Phasellus ornare in
-              metus et convallis. Quisque eu laoreet urna, quis pellentesque
-              ipsum. Vestibulum rhoncus, sapien sit amet pellentesque finibus,
-              orci quam lobortis purus, quis commodo odio elit eu neque. Aenean
-              finibus elit ac molestie iaculis. Nullam ac sapien cursus, tempus
-              augue at, iaculis nulla. Etiam a nisi varius, placerat sapien sed,
-              finibus libero.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-              pulvinar turpis sed ipsum porta eleifend. Phasellus ornare in
-              metus et convallis. Quisque eu laoreet urna, quis pellentesque
-              ipsum. Vestibulum rhoncus, sapien sit amet pellentesque finibus,
-              orci quam lobortis purus, quis commodo odio elit eu neque. Aenean
-              finibus elit ac molestie iaculis. Nullam ac sapien cursus, tempus
-              augue at, iaculis nulla. Etiam a nisi varius, placerat sapien sed,
-              finibus libero.
+              The Game of Life is a cellular automaton devised by the British
+              mathematician John Horton Conway in 1970. It is a zero-player
+              game, meaning that its evolution is determined by its initial
+              state, requiring no further input.
             </p>
           </div>
         </div>
