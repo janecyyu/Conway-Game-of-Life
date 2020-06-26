@@ -83,7 +83,6 @@ function App() {
       return () => window.clearInterval(id);
     }
   }, [stopping]);
-
   return (
     <div className="app">
       <h1 className="title">Conway's Game of Life</h1>
