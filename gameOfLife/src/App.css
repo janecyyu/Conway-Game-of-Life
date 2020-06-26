@@ -1,38 +1,131 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
+.app .title {
   text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: #0a1d86;
+  font-size: 55px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app .container {
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app .container .display {
+  width: 65%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app .container .display .left {
+  width: 70%;
+  padding-left: 5%;
+}
+
+.app .container .display .left .grid {
+  padding-left: 20%;
+}
+
+.app .container .display .left .cells {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.app .container .display .right {
+  width: 20%;
+  margin-bottom: 11%;
+  display: flex;
+}
+
+.app .container .display .generation {
+  text-align: center;
+  margin-left: 1%;
+  color: Brown;
+}
+
+.app .container .display .btnAtBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: 2%;
+}
+
+.btnAtBottom .play,
+.stop,
+.clear {
+  margin: 2%;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: #ff9900;
+  border: 1px solid wheat;
+  color: aliceblue;
+  width: 150px;
+}
+
+.play:hover {
+  box-shadow: 3px 3px #888888c1;
+}
+.stop:hover {
+  box-shadow: 3px 3px #888888c1;
+}
+.clear:hover {
+  box-shadow: 3px 3px #888888c1;
+}
+
+.app .container .display .right .presetButtons {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+}
+
+.app .container .display .right .presetButtons .preBtn {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin: 59px 20px;
+  padding: 5px;
+  border: none;
+  height: 50px;
+  width: 170px;
   color: white;
+  border: 1px solid wheat;
+  background-color: rgb(10, 164, 113);
+  font-family: "Roboto", sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.preBtn:hover {
+  box-shadow: 3px 3px #888888c1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app .container .rulesAndAbout {
+  width: 35%;
+  height: 800px;
+  padding-right: 7%;
+}
+
+.app .container .ruleTitle {
+  text-align: center;
+  color: brown;
+}
+
+.app .container .rules .rulesContent {
+  font-size: 22px;
+  line-height: 30px;
+  color: rgb(45, 10, 10);
+}
+
+.app .about {
+  margin-top: 20%;
+  text-align: center;
+  color: brown;
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 30px;
+  margin-left: 7%;
+  color: rgb(45, 10, 10);
 }
