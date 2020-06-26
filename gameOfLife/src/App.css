@@ -16,12 +16,21 @@
 
 .app .container .display .left {
   width: 70%;
-  border: 1px solid red;
   padding-left: 5%;
 }
 
 .app .container .display .left .grid {
   padding-left: 10%;
+}
+
+.app .container .display .left .cells {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.cells:hover {
+  background-color: white;
 }
 
 .app .container .display .right {
@@ -42,17 +51,28 @@
   flex-direction: row;
   justify-content: space-evenly;
   margin-right: 15%;
-  border: 1px solid red;
 }
 
 .btnAtBottom .play,
-.pause,
 .stop,
 .clear {
   margin: 2%;
   padding: 10px;
   font-size: 1.5rem;
   border-radius: 10px;
+  background-color: #ff9900;
+  border: 1px solid wheat;
+  color: aliceblue;
+}
+
+.play:hover {
+  box-shadow: 3px 3px #888888c1;
+}
+.stop:hover {
+  box-shadow: 3px 3px #888888c1;
+}
+.clear:hover {
+  box-shadow: 3px 3px #888888c1;
 }
 
 .app .container .display .right .presetGrids {

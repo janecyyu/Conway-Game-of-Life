@@ -101,6 +101,7 @@ function App() {
               {grid.map((rows, i) =>
                 rows.map((col, k) => (
                   <button
+                    className="cells"
                     key={`${i}-${k}`}
                     disabled={!on}
                     onClick={() => {
@@ -111,10 +112,7 @@ function App() {
                       setGrid(newGrid);
                     }}
                     style={{
-                      width: 20,
-                      height: 20,
-                      backgroundColor: grid[i][k] ? "skyblue" : undefined,
-                      border: "1px solid black",
+                      backgroundColor: grid[i][k] ? "CadetBlue" : undefined,
                     }}
                   />
                 ))
@@ -145,7 +143,7 @@ function App() {
                     setStopping(true);
                   }}
                 >
-                  stop
+                  Stop
                 </button>
               )}
               <button
