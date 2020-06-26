@@ -1,5 +1,6 @@
 .app .title {
   text-align: center;
+  margin-bottom: 5%;
 }
 
 .app .container {
@@ -9,9 +10,9 @@
 
 .app .container .display {
   width: 65%;
-  height: 800px;
+  height: 80%;
   display: flex;
-  border: 1px solid red;
+  justify-content: center;
 }
 
 .app .container .display .left {
@@ -20,7 +21,7 @@
 }
 
 .app .container .display .left .grid {
-  padding-left: 10%;
+  padding-left: 20%;
 }
 
 .app .container .display .left .cells {
@@ -30,16 +31,14 @@
 }
 
 .app .container .display .right {
-  width: 30%;
+  width: 20%;
   margin-bottom: 11%;
-  margin-top: 6%;
   display: flex;
-  border: 1px solid red;
 }
 
 .app .container .display .generation {
   text-align: center;
-  margin-right: 15%;
+  margin-left: 1%;
   color: Brown;
 }
 
@@ -47,7 +46,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-right: 15%;
+  margin-left: 1%;
 }
 
 .btnAtBottom .play,
@@ -60,6 +59,7 @@
   background-color: #ff9900;
   border: 1px solid wheat;
   color: aliceblue;
+  width: 150px;
 }
 
 .play:hover {
@@ -72,23 +72,10 @@
   box-shadow: 3px 3px #888888c1;
 }
 
-.app .container .display .right .presetGrids {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.app .container .display .right .presetGrids .pre {
-  width: 130px;
-  height: 130px;
-  border: 1px solid orange;
-}
-
 .app .container .display .right .presetButtons {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .app .container .display .right .presetButtons .preBtn {
@@ -96,12 +83,21 @@
   border-radius: 5px;
   margin: 59px 20px;
   padding: 5px;
+  border: none;
+  height: 44px;
+  color: white;
+  border: 1px solid wheat;
+  background-color: rgb(10, 164, 113);
+}
+
+.preBtn:hover {
+  box-shadow: 3px 3px #888888c1;
 }
 
 .app .container .rulesAndAbout {
   width: 35%;
   height: 800px;
-  /* padding-right: 3%; */
+  padding-right: 5%;
 }
 
 .app .container .ruleTitle {
@@ -110,16 +106,16 @@
 
 .app .container .rules .rulesContent {
   font-size: 22px;
-  padding-right: 2%;
   line-height: 30px;
 }
 
 .app .about {
+  margin-top: 20%;
   text-align: center;
 }
 
 p {
   font-size: 1.3rem;
   line-height: 30px;
-  padding-right: 2%;
+  margin-left: 7%;
 }
