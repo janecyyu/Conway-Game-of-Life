@@ -51,31 +51,20 @@ function App() {
                 neighbors += g[newI][newJ];
               }
             });
-            // don't count self
 
-            // will die if neighbors less than 2 or more than three
-            if (neighbors > 4) {
+            // will die if neighbors less than 2 or more than three, neighbors including self
+            if (neighbors > 4 || neighbors < 3) {
               console.log(g[i][j]);
               console.log(">3", neighbors);
               gridCopy[i][j] = 0;
-              // will get life if you have three neighbors but you don't have life yet
             }
-            if (neighbors < 3) {
-              console.log(g[i][j]);
-              console.log("<2", neighbors);
-              gridCopy[i][j] = 0;
-            }
+
             // will get life if you have three neighbors but you don't have life yet
             if (g[i][j] === 0 && neighbors === 3) {
               console.log(g[i][j]);
               console.log("add", neighbors);
               gridCopy[i][j] = 1;
             }
-            // } else if (g[i][j] === 1 && neighbors == 2) {
-            //   gridCopy[i][j] = 1;
-            // } else if (g[i][j] === 1 && neighbors == 3) {
-            //   gridCopy[i][j] = 1;
-            // }
           }
         }
       });
