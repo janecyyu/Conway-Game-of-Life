@@ -69,6 +69,7 @@ function App() {
         }
       });
     });
+    // repeat every "speed" time
     setTimeout(runSimulation, speed);
   }, []);
 
@@ -91,6 +92,7 @@ function App() {
           <div className="left">
             <h2 className="generation">Generation:{count}</h2>
             <div
+              className="grid"
               style={{
                 display: "grid",
                 gridTemplateColumns: `repeat(${numCols}, 20px)`,

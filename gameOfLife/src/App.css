@@ -11,32 +11,38 @@
   width: 65%;
   height: 800px;
   display: flex;
+  border: 1px solid red;
 }
 
 .app .container .display .left {
   width: 70%;
+  border: 1px solid red;
+  padding-left: 5%;
 }
+
+.app .container .display .left .grid {
+  padding-left: 10%;
+}
+
 .app .container .display .right {
   width: 30%;
   margin-bottom: 11%;
   margin-top: 6%;
   display: flex;
+  border: 1px solid red;
 }
 
 .app .container .display .generation {
   text-align: center;
-  margin-right: 10%;
+  margin-right: 15%;
 }
-
-/* .app .container .display .left .grid {
-  border: 1px solid black;
-} */
 
 .app .container .display .btnAtBottom {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin-right: 15%;
+  border: 1px solid red;
 }
 
 .btnAtBottom .play,
