@@ -27,12 +27,11 @@ function App() {
   const [on, setOn] = useState(true);
   const [stopping, setStopping] = useState(true);
   const [count, setCount] = useState(0);
-  const [slow, setSlow] = useState(100);
+  const [speed, setSpeed] = useState(100);
   const runningRef = useRef(running);
 
   // use useCallback instead of useEffect, because we have to get new data for setGrid()
   const runSimulation = useCallback(() => {
-    console.log("sim", slow);
     if (!runningRef.current) {
       return;
     }
@@ -70,16 +69,16 @@ function App() {
         }
       });
     });
-    setTimeout(runSimulation, slow);
+    setTimeout(runSimulation, speed);
   }, []);
 
   // run if the state of stopping is false
   useEffect(() => {
     if (!stopping) {
-      // set a clock to increasing counting, running time depends on the state of slow
+      // set a clock to increasing counting, running time depends on the state of speed
       const id = window.setInterval(() => {
         setCount((count) => count + 1);
-      }, slow);
+      }, speed);
       // set counter to zero
       return () => window.clearInterval(id);
     }
@@ -139,7 +138,6 @@ function App() {
                   className="stop"
                   onClick={() => {
                     setRunning(false);
-                    console.log("speed", slow);
                     runningRef.current = false;
                     setOn(true);
                     setStopping(true);
@@ -160,8 +158,6 @@ function App() {
               >
                 Clear
               </button>
-              <button onClick={() => setSlow(50)}>fast</button>
-              <button onClick={() => setSlow(2000)}>slow</button>
             </div>
           </div>
           <div className="right">
