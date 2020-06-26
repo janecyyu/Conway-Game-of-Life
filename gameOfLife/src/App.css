@@ -1,11 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&display=swap");
+
 .app .title {
   text-align: center;
-  margin-bottom: 5%;
+  font-family: "Roboto", sans-serif;
+  color: #0a1d86;
+  font-size: 55px;
 }
 
 .app .container {
   display: flex;
-  flex-direction: row;
 }
 
 .app .container .display {
@@ -46,7 +50,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin-left: 1%;
+  margin-left: 2%;
 }
 
 .btnAtBottom .play,
@@ -84,10 +88,12 @@
   margin: 59px 20px;
   padding: 5px;
   border: none;
-  height: 44px;
+  height: 50px;
+  width: 170px;
   color: white;
   border: 1px solid wheat;
   background-color: rgb(10, 164, 113);
+  font-family: "Roboto", sans-serif;
 }
 
 .preBtn:hover {
@@ -97,25 +103,29 @@
 .app .container .rulesAndAbout {
   width: 35%;
   height: 800px;
-  padding-right: 5%;
+  padding-right: 7%;
 }
 
 .app .container .ruleTitle {
   text-align: center;
+  color: brown;
 }
 
 .app .container .rules .rulesContent {
   font-size: 22px;
   line-height: 30px;
+  color: rgb(45, 10, 10);
 }
 
 .app .about {
   margin-top: 20%;
   text-align: center;
+  color: brown;
 }
 
 p {
   font-size: 1.3rem;
   line-height: 30px;
   margin-left: 7%;
+  color: rgb(45, 10, 10);
 }

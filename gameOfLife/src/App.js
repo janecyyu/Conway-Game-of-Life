@@ -90,7 +90,7 @@ function App() {
       <div className="container">
         <div className="display">
           <div className="left">
-            <h2 className="generation">Generation:{count}</h2>
+            <h2 className="generation">Generation: {count}</h2>
             <div
               className="grid"
               style={{
