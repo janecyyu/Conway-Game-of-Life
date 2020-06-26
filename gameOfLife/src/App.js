@@ -176,9 +176,59 @@ function App() {
               >
                 10 Cell Row
               </button>
-              <button className="preBtn">Preset 2</button>
-              <button className="preBtn">Preset 3</button>
-              <button className="preBtn">Preset 4</button>
+              <button
+                className="preBtn"
+                onClick={() => {
+                  const newGrid = produce(grid, (gridCopy) => {
+                    // if cells alive, gridCopy get 1
+                    grid[10][12] = 1;
+                    for (let i = 11; i < 14; i++) {
+                      gridCopy[11][i] = 1;
+                    }
+                    grid[12][11] = 1;
+                    grid[12][13] = 1;
+                    grid[13][12] = 1;
+                  });
+                  setGrid(newGrid);
+                }}
+              >
+                Small Exploder
+              </button>
+              <button
+                className="preBtn"
+                onClick={() => {
+                  const newGrid = produce(grid, (gridCopy) => {
+                    // if cells alive, gridCopy get 1
+                    for (let i = 9; i < 14; i++) {
+                      gridCopy[i][10] = 1;
+                    }
+                    gridCopy[9][12] = 1;
+                    gridCopy[13][12] = 1;
+                    for (let i = 9; i < 14; i++) {
+                      gridCopy[i][14] = 1;
+                    }
+                  });
+                  setGrid(newGrid);
+                }}
+              >
+                Exploder
+              </button>
+              <button
+                className="preBtn"
+                onClick={() => {
+                  const newGrid = produce(grid, (gridCopy) => {
+                    // if cells alive, gridCopy get 1
+                    grid[10][12] = 1;
+                    grid[11][13] = 1;
+                    for (let i = 11; i < 14; i++) {
+                      gridCopy[12][i] = 1;
+                    }
+                  });
+                  setGrid(newGrid);
+                }}
+              >
+                Glider
+              </button>
             </div>
           </div>
         </div>
