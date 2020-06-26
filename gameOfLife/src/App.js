@@ -86,7 +86,14 @@ function App() {
   }, [stopping]);
   return (
     <div className="app">
-      <h1 className="title">Conway's Game of Life</h1>
+      <h1 className="title">
+        Conway's Game of Life
+        <a
+          href="https://github.com/janecyyu/Conway-Game-of-Life/tree/master"
+          class="fa fa-github"
+          target="blank"
+        ></a>
+      </h1>
       <div className="container">
         <div className="display">
           <div className="left">
