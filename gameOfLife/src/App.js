@@ -54,15 +54,15 @@ function App() {
 
             // will die if neighbors less than 2 or more than three, neighbors including self
             if (neighbors > 4 || neighbors < 3) {
-              console.log(g[i][j]);
-              console.log(">3", neighbors);
+              // console.log(g[i][j]);
+              // console.log(">3", neighbors);
               gridCopy[i][j] = 0;
             }
 
             // will get life if you have three neighbors but you don't have life yet
             if (g[i][j] === 0 && neighbors === 3) {
-              console.log(g[i][j]);
-              console.log("add", neighbors);
+              // console.log(g[i][j]);
+              // console.log("add", neighbors);
               gridCopy[i][j] = 1;
             }
           }

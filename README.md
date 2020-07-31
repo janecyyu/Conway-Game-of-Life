@@ -11,4 +11,6 @@ The Game of Life is a cellular automaton devised by the British mathematician Jo
 
 ## [Deploy](https://conway-game-of-life-iota.vercel.app/)
 
+![conway game App](conway-demo.gif)
+
 You can check my deployment [Here].(https://conway-game-of-life-iota.vercel.app/).
