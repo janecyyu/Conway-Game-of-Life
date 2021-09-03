@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/janecyyu/Conway-Game-of-Life#readme",
   "dependencies": {
-    "immer": "^7.0.5"
+    "immer": "^9.0.6"
   }
 }
